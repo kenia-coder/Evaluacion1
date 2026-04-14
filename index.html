@@ -7,7 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="site-header">
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>VM-25L</h2>
+            <button class="sidebar-toggle" aria-label="Cerrar menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#inicio" class="sidebar-link">Inicio</a></li>
+            <li><a href="#descripcion" class="sidebar-link">Descripción</a></li>
+            <li><a href="#caracteristicas" class="sidebar-link">Características</a></li>
+            <li><a href="#beneficios" class="sidebar-link">Beneficios</a></li>
+            <li><a href="#comprar" class="sidebar-link">Comprar</a></li>
+            <li><a href="#tiendas" class="sidebar-link">Dónde comprar</a></li>
+            <li><a href="#contacto" class="sidebar-link">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Abrir menú">
+        ☰
+    </button>
+
+    <header class="site-header" id="inicio">
         <div class="header-content">
             <p class="badge">Nuevo modelo</p>
             <h1>VM-25L</h1>
@@ -47,7 +71,7 @@
     </header>
 
     <main class="container">
-        <section class="descripcion">
+        <section class="descripcion" id="descripcion">
             <h2>Te Presentamos la nueva VM-25L</h2>
             <p>La VM-25L está pensada para quienes necesitan una laptop versátil que responda rápido en cada tarea. Su procesador de alto rendimiento permite abrir múltiples aplicaciones sin perder fluidez.</p>
             <p>La pantalla Full HD ofrece colores nítidos y un brillo constante, ideal para ver contenido, presentaciones o trabajar en documentos largos. Además, su diseño compacto facilita llevarla a cualquier lugar.</p>
@@ -57,7 +81,7 @@
             <p>Es una opción ideal tanto para estudiantes como para profesionales que buscan un balance entre rendimiento, diseño y autonomía. La VM-25L está lista para acompañarte en el trabajo, la creatividad y el entretenimiento.</p>
         </section>
 
-        <section class="benefits">
+        <section class="benefits" id="beneficios">
             <h2>Beneficios principales</h2>
             <div class="benefits-grid">
                 <div class="benefit-card">
@@ -105,7 +129,7 @@
             </div>
         </section>
 
-        <section class="tabs">
+        <section class="tabs" id="caracteristicas">
             <h2>Características</h2>
             <div class="tab-buttons">
                 <button class="tab-button active" data-tab="especificaciones">Especificaciones</button>
@@ -143,7 +167,7 @@
             </div>
         </section>
 
-        <section class="purchase">
+        <section class="purchase" id="comprar">
             <div class="purchase-card">
                 <div>
                     <h2>Comprar VM-25L</h2>
@@ -175,7 +199,7 @@
             </div>
         </section>
 
-        <section class="stores">
+        <section class="stores" id="tiendas">
             <h2>Dónde comprar</h2>
             <div class="stores-grid">
                 <div class="store-card">
@@ -199,7 +223,7 @@
             </div>
         </section>
 
-        <section class="contact">
+        <section class="contact" id="contacto">
             <h2>Contáctanos</h2>
             <div class="contact-content">
                 <div class="contact-info">
@@ -243,6 +267,10 @@
     <script>
         const buttons = document.querySelectorAll('.tab-button');
         const tabs = document.querySelectorAll('.tab-content');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
 
         buttons.forEach(button => {
             button.addEventListener('click', () => {
@@ -280,6 +308,45 @@
         }
 
         setInterval(nextSlide, 4500);
+
+        function closeSidebar() {
+            sidebar.classList.remove('active');
+        }
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+        }
+
+        menuToggle.addEventListener('click', toggleSidebar);
+        sidebarToggle.addEventListener('click', closeSidebar);
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                closeSidebar();
+                sidebarLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('main > section');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
