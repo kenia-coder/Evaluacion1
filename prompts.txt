@@ -1,0 +1,26 @@
+Prompt 1 
+Necesito que me ayudes a crear una pagina web la cual presente una laptop que tenga por nombre de modelo vm-25L , tenga una breve descripsion de ella y que tenga una seccion destacada de esta laptop
+
+Prompt 2
+Necesito hacer una mejora del diseño de la pagina donde tenga diferentes pestañas de cuales son las caracteristicas de la laptop , un apartado para poder comprar y opcion de otras alternativas que se le parezcan pero sin dejar de darle foco a la vm-25L
+
+Prompt 3 
+Necesito agregarle a la pagina un buscador web y botones que sean llamativos
+
+Prompt 4 
+Necesito una descripsion mas larga del producto como de unas 8 lineas 
+
+Prompt 5
+Necesito cambiar los colores de la pagina a unos mas llamativos como negro y rojo brillante 
+
+Prompt 6 
+Necesito incorporar al final de la pagina una opcion de contacto , donde comprar y tiendas fisicas 
+
+Prompt 7
+Necesito agrega los beneficios que tendria la laptop y otras caracteristicas principales algo que la haga ver potente frente a otras
+
+Prompt 8 
+Necesito un menu de opciones en el lado izquierdo para acceder de una manera mas rapida a las distintas opciones que se ofrecen 
+
+Prompt 9 
+Por ultimo necesito un cuadro comparativo de la laptop inicial con otras en el cual se especifique todo lo importante y de porque la vm-25l es mejor
